@@ -47,7 +47,7 @@ const Hero = () => {
                 {visibleBoxes.map((box, index) => (
                   <div
                     key={currentIndex + index}
-                    className='bg-white bg-opacity-10 backdrop-blur-md rounded-lg p-6 w-64 h-56 hover:bg-opacity-20 transition-all duration-300 flex flex-col justify-center'
+                    className='bg-white bg-opacity-10 backdrop-blur-md rounded-lg p-6 w-96 h-56 hover:bg-opacity-20 transition-all duration-300 flex flex-col justify-center'
                   >
                     <h3 className='text-xl font-semibold mb-2 text-white'>{box.title}</h3>
                     <p className='text-sm text-gray-200'>{box.description}</p>
@@ -76,7 +76,9 @@ const Hero = () => {
               ))}
             </div>
         </div>
+        <div className='w-full h-16  bg-black opacity-50'></div>
     </div>
+
   )
 }
 
