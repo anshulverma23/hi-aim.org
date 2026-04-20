@@ -47,7 +47,7 @@ function NavItem({ title, href = '#', dropdown = [], onClose, isMobile }) {
       {hasDropdown ? (
         <button
           type="button"
-          className="flex w-full cursor-pointer items-center justify-between whitespace-nowrap text-left transition-colors hover:text-violet-500 md:w-auto md:justify-start"
+          className="flex w-full cursor-pointer items-center justify-between whitespace-nowrap text-left transition-colors  md:w-auto md:justify-start"
           aria-expanded={open}
           aria-haspopup="menu"
           onClick={toggleDropdown}
@@ -60,7 +60,7 @@ function NavItem({ title, href = '#', dropdown = [], onClose, isMobile }) {
       ) : (
         <a
           href={href}
-          className="block w-full cursor-pointer whitespace-nowrap text-left transition-colors hover:text-violet-500 md:w-auto"
+          className="block w-full cursor-pointer whitespace-nowrap text-left transition-colors md:w-auto"
           onClick={closeAll}
         >
           {title}

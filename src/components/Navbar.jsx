@@ -78,19 +78,13 @@ const navItems = [
 
 function Navbar() {
   const [open, setOpen] = useState(false)
-  const [isMobile, setIsMobile] = useState(() => {
-    if (typeof window === 'undefined') return false
-    return window.innerWidth < 768
-  })
+  const [isMobile, setIsMobile] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
-  const toggleMenu = () => {
-    setOpen((prev) => !prev)
-  }
+  const toggleMenu = () => setOpen(prev => !prev)
+  const closeMenu = () => setOpen(false)
 
-  const closeMenu = () => {
-    setOpen(false)
-  }
-
+  // 📱 mobile detect
   useEffect(() => {
     const handleResize = () => {
       const mobile = window.innerWidth < 768
@@ -103,21 +97,43 @@ function Navbar() {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  return (
-    <nav className="sticky top-0 z-40">
+  // 📜 scroll effect (MAIN FEATURE)
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true)
+      } else {
+        setScrolled(false)
+      }
+    }
 
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  return (
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500
+      ${scrolled 
+        ? 'bg-white text-[#F6CE71] shadow-md' 
+        : 'bg-transparent text-[#F6CE71]'
+      }`}
+    >
       {/* main navbar */}
-      <div className="flex items-center justify-between px-4 sm:px-6 md:px-12 lg:px-20 xl:px-40 bg-white text-black shadow-sm">
+      <div className="flex items-center text-lg justify-between px-4 sm:px-6 md:px-12 lg:px-20 xl:px-40 py-3">
 
         {/* logo */}
-        <img src="/logo1.jpg" alt="Hi Aim logo" className="h-16 w-auto md:h-20" />
+        <img
+          src="/logo1-removebg-preview.png"
+          alt="Hi Aim logo"
+          className="h-16 w-auto md:h-20"
+        />
 
-        {/* hamburger button (mobile) */}
+        {/* hamburger */}
         <button
-          className="md:hidden text-2xl focus:outline-none focus:ring-2 focus:ring-violet-500 rounded p-1 transition-colors"
+          className="md:hidden text-2xl focus:outline-none"
           onClick={toggleMenu}
           aria-label="Toggle menu"
-          aria-expanded={open}
         >
           {open ? '✕' : '☰'}
         </button>
@@ -126,17 +142,15 @@ function Navbar() {
         <ul
           className={`
             flex flex-col md:flex-row
-            md:gap-4 lg:gap-6 gap-1
+            md:gap-4 lg:gap-6 gap-2
             absolute md:static
+            left-0 w-full md:w-auto
             bg-white md:bg-transparent
-            w-full md:w-auto
-            left-0 md:top-auto
             px-4 md:px-0 py-4 md:py-0
             shadow-lg md:shadow-none
-            border-t md:border-t-0 border-gray-200 md:border-0
-            transition-all duration-300 ease-in-out
-            origin-top md:origin-auto
-            ${open ? 'top-full block scale-y-100' : 'hidden scale-y-0 -top-96 md:flex md:scale-y-100'}
+            border-t md:border-0
+            transition-all duration-300
+            ${open ? 'top-full block' : 'hidden md:flex'}
           `}
         >
           {navItems.map((item) => (

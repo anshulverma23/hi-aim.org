@@ -1,11 +1,14 @@
 import React from 'react'
 
+
 const Second = () => {
   return (
     <>
-    <div className='w-full h-12 bg-white'></div>
+    <section className='w-full h-24 bg-white'>
+    </section>
       {/* Showcase Banner Section */}
       <section className='relative w-full h-96 overflow-hidden'>
+        
         <img
           className='absolute inset-0 w-full h-full object-cover'
           src='/corporate.webp'
