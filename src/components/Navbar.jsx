@@ -1,28 +1,116 @@
-import React, { useState } from "react";
-import NavItem from "./NavItem";
+import React, { useEffect, useState } from 'react'
+import NavItem from './NavItem'
+
+const navItems = [
+  { title: 'HOME', href: '#home' },
+  {
+    title: 'ABOUT HI AIM',
+    dropdown: [
+      { label: 'Overview', href: '#overview' },
+      { label: 'About Us', href: '#about' },
+      { label: 'Terms & Conditions', href: '#terms' },
+      { label: 'Privacy Policy', href: '#privacy' },
+    ],
+  },
+  {
+    title: 'HI AIM 2027',
+    dropdown: [
+      { label: 'Program', href: '#program' },
+      { label: 'Venue', href: '#venue' },
+      { label: 'Speaker', href: '#speaker' },
+      { label: 'Exhibitors Profiles', href: '#exhibitors-profiles' },
+      { label: 'Sponsorship Details', href: '#sponsorship-details' },
+      { label: 'Exposition Layout', href: '#exposition-layout' },
+      { label: 'Guidelines for Exhibitors', href: '#guidelines-for-exhibitors' },
+      { label: 'Registration T & C', href: '#registration-tc' },
+      { label: 'Delegate Registration Form', href: '#delegate-registration-form' },
+    ],
+  },
+  { title: 'GALLERY', href: '#gallery' },
+  {
+    title: 'NEWS',
+    dropdown: [
+      { label: 'Media Coverage', href: '#media-coverage' },
+      { label: 'Press Releases', href: '#press-releases' },
+    ],
+  },
+  {
+    title: 'TESTIMONIALS',
+    dropdown: [
+      { label: 'Testimonial - 2014', href: '#testimonial-2014' },
+      { label: 'Testimonial - 2015', href: '#testimonial-2015' },
+      { label: 'Testimonial - 2016', href: '#testimonial-2016' },
+      { label: 'Testimonial - 2017', href: '#testimonial-2017' },
+      { label: 'Testimonial - 2018', href: '#testimonial-2018' },
+      { label: 'Testimonial - 2019', href: '#testimonial-2019' },
+      { label: 'Testimonial - 2020', href: '#testimonial-2020' },
+      { label: 'Testimonial - 2021', href: '#testimonial-2021' },
+      { label: 'Testimonial - 2022', href: '#testimonial-2022' },
+      { label: 'Testimonial - 2023', href: '#testimonial-2023' },
+      { label: 'Testimonial - 2024', href: '#testimonial-2024' },
+      { label: 'Testimonial - 2025', href: '#testimonial-2025' },
+      { label: 'Testimonial - 2026', href: '#testimonial-2026' },
+    ],
+  },
+  {
+    title: 'ARCHIVES',
+    dropdown: [
+      { label: 'HI AIM - 2016', href: '#hi-aim-2016' },
+      { label: 'HI AIM - 2017', href: '#hi-aim-2017' },
+      { label: 'HI AIM - 2018', href: '#hi-aim-2018' },
+    ],
+  },
+  {
+    title: 'PAST EDITIONS',
+    dropdown: [
+      { label: 'HI AIM - 2019', href: '#hi-aim-2019' },
+      { label: 'HI AIM - 2020', href: '#hi-aim-2020' },
+      { label: 'HI AIM - 2021', href: '#hi-aim-2021' },
+      { label: 'HI AIM - 2022', href: '#hi-aim-2022' },
+      { label: 'HI AIM - 2023', href: '#hi-aim-2023' },
+      { label: 'HI AIM - 2024', href: '#hi-aim-2024' },
+      { label: 'HI AIM - 2025', href: '#hi-aim-2025' },
+      { label: 'HI AIM - 2026', href: '#hi-aim-2026' },
+    ],
+  },
+  { title: 'CONTACT US', href: '#contact' },
+]
 
 function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === 'undefined') return false
+    return window.innerWidth < 768
+  })
 
   const toggleMenu = () => {
-    setOpen(!open);
-  };
+    setOpen((prev) => !prev)
+  }
 
   const closeMenu = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
+
+  useEffect(() => {
+    const handleResize = () => {
+      const mobile = window.innerWidth < 768
+      setIsMobile(mobile)
+      if (!mobile) setOpen(false)
+    }
+
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   return (
     <nav className="sticky top-0 z-40">
-
-      {/* top bar */}
-      <div className="bg-violet-500 h-6 w-full"></div>
 
       {/* main navbar */}
       <div className="flex items-center justify-between px-4 sm:px-6 md:px-12 lg:px-20 xl:px-40 bg-white text-black shadow-sm">
 
         {/* logo */}
-        <img src="logo1.jpg" alt="logo"  />
+        <img src="/logo1.jpg" alt="Hi Aim logo" className="h-16 w-auto md:h-20" />
 
         {/* hamburger button (mobile) */}
         <button
@@ -31,7 +119,7 @@ function Navbar() {
           aria-label="Toggle menu"
           aria-expanded={open}
         >
-          {open ? "✕" : "☰"}
+          {open ? '✕' : '☰'}
         </button>
 
         {/* menu */}
@@ -48,106 +136,24 @@ function Navbar() {
             border-t md:border-t-0 border-gray-200 md:border-0
             transition-all duration-300 ease-in-out
             origin-top md:origin-auto
-            ${open ? "top-full block scale-y-100" : "hidden scale-y-0 -top-96 md:flex md:scale-y-100"}
+            ${open ? 'top-full block scale-y-100' : 'hidden scale-y-0 -top-96 md:flex md:scale-y-100'}
           `}
         >
-
-          <li className="py-2 md:py-0 hover:text-violet-500 cursor-pointer transition-colors whitespace-nowrap">HOME</li>
-
-          <NavItem
-            title="ABOUT HI AIM"
-            onClose={closeMenu}
-            dropdown={[
-              "Overview",
-              "About Us",
-              "Terms & Conditions",
-              "Privacy Policy"
-            ]}
-          />
-
-          <NavItem
-            title="HI AIM 2027"
-            onClose={closeMenu}
-            dropdown={[
-              "Program",
-              "Venue",
-              "Speaker",
-              "Exhibitors Profiles",
-              "Sponsorship Details",
-              "Exposition Layout",
-              "Guidelines for Exhibitors",
-              "Registration T & C",
-              "Delegate Registration Form"
-            ]}
-          />
-
-          <li className="py-2 md:py-0 hover:text-violet-500 cursor-pointer transition-colors whitespace-nowrap">GALLERY</li>
-
-          <NavItem
-            title="NEWS"
-            onClose={closeMenu}
-            dropdown={[
-              "Media Coverage",
-              "Press Releases"
-            ]}
-          />
-
-          <NavItem
-            title="TESTIMONIALS"
-            onClose={closeMenu}
-            dropdown={[
-              "Testimonial - 2014",
-              "Testimonial - 2015",
-              "Testimonial - 2016",
-              "Testimonial - 2017",
-              "Testimonial - 2018",
-              "Testimonial - 2019",
-              "Testimonial - 2020",
-              "Testimonial - 2021",
-              "Testimonial - 2022",
-              "Testimonial - 2023",
-              "Testimonial - 2024",
-              "Testimonial - 2025",
-              "Testimonial - 2026"
-            ]}
-          />
-
-          <NavItem
-            title="ARCHIVES"
-            onClose={closeMenu}
-            dropdown={[
-              "HI AIM - 2016",
-              "HI AIM - 2017",
-              "HI AIM - 2018",
-            ]}
-          />
-
-          <NavItem
-            title="ARCHIVES"
-            onClose={closeMenu}
-            dropdown={[
-              "HI AIM - 2016",
-              "HI AIM - 2017",
-              "HI AIM - 2018",
-              "HI AIM - 2019",
-              "HI AIM - 2020",
-              "HI AIM - 2021",
-              "HI AIM - 2022",
-              "HI AIM - 2023",
-              "HI AIM - 2024",
-              "HI AIM - 2025",
-              "HI AIM - 2026"
-              
-            ]}
-          />
-
-          <li className="py-2 md:py-0 hover:text-violet-500 cursor-pointer transition-colors whitespace-nowrap">CONTACT US</li>
-
+          {navItems.map((item) => (
+            <NavItem
+              key={item.title}
+              title={item.title}
+              href={item.href}
+              dropdown={item.dropdown}
+              onClose={closeMenu}
+              isMobile={isMobile}
+            />
+          ))}
         </ul>
 
       </div>
     </nav>
-  );
+  )
 }
 
-export default Navbar;
+export default Navbar
