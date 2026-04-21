@@ -1,17 +1,22 @@
-import React from 'react'
+import React from "react";
 
-const second = () => {
+const Register = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center relative bg-[url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85')] bg-cover bg-center">
-
+    <div className="min-h-screen pt-24 flex items-center justify-center relative bg-cover bg-center"
+      style={{
+        backgroundImage: "url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}>
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-md"></div>
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-md z-0"></div>
 
       {/* Card */}
-      <div className="relative z-10 w-[380px] p-8 rounded-2xl 
+      <div
+        className="relative z-10 w-[380px] p-8 rounded-2xl 
                       bg-white/10 backdrop-blur-xl 
-                      border border-white/20 shadow-2xl text-white">
-
+                      border border-white/20 shadow-2xl text-white"
+      >
         <h2 className="text-2xl font-semibold mb-2">Welcome Back!</h2>
         <p className="text-sm text-gray-300 mb-6">
           Enter your details below to sign in into your account
@@ -74,7 +79,7 @@ const second = () => {
         </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default second
+export default Register;

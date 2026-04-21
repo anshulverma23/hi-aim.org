@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import NavItem from './NavItem'
 
@@ -74,6 +75,8 @@ const navItems = [
     ],
   },
   { title: 'CONTACT US', href: '#contact' },
+  
+  
 ]
 
 function Navbar() {
@@ -83,6 +86,7 @@ function Navbar() {
 
   const toggleMenu = () => setOpen(prev => !prev)
   const closeMenu = () => setOpen(false)
+  const navigate = useNavigate();
 
   // 📱 mobile detect
   useEffect(() => {
@@ -115,8 +119,8 @@ function Navbar() {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500
       ${scrolled 
-        ? 'bg-white text-[#F6CE71] shadow-md' 
-        : 'bg-transparent text-[#F6CE71]'
+        ? 'bg-white text-yellow-500 shadow-md' 
+        : 'bg-transparent text-yellow-500'
       }`}
     >
       {/* main navbar */}
@@ -164,8 +168,14 @@ function Navbar() {
             />
           ))}
         </ul>
+        <button className="hidden md:block bg-yellow-500 text-white px-4 py-2 rounded-full hover:bg-yellow-600 transition"
+        onClick={() => navigate('/register')}>
+          Register
+        </button>
 
       </div>
+      
+     
     </nav>
   )
 }
