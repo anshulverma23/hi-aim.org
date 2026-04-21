@@ -17,14 +17,16 @@ const Third = () => {
           </p>
         </div>
         <div className="flex-col bg-gray-950 w-1/2 min-h-0.5">
-          <div className="flex w-2/6 h-2/6">
-            <div className="h-1/3 w-1/3 bg-gray-900"></div>
-            <div className="bg-gray-800"></div>
+          <div className="flex w-full h-1/2 bg"> 
+            <div className="w-2/6 m-10 bg-gray-900"></div>
+            <div className="w-2/6 m-10 bg-gray-800"></div>
           </div>
-          <div>
-            <div className="bg-gray-700"></div>
-            <div className="bg-gray-600" ></div>
+          <div className="flex w-full h-1/2 bg"> 
+            <div className="w-2/6 m-10 bg-gray-900"></div>
+            <div className="w-2/6 m-10 bg-gray-800"></div>
           </div>
+
+          
         </div>
       </div>
     </>
