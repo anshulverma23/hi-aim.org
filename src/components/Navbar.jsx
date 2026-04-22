@@ -1,161 +1,102 @@
-import { useNavigate } from 'react-router-dom'
-import React, { useEffect, useState } from 'react'
-import NavItem from './NavItem'
+import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import NavItem from "./NavItem";
 
 const navItems = [
-  { title: 'HOME', href: '#home' },
+  { title: "HOME", href: "#home" },
   {
-    title: 'ABOUT HI AIM',
+    title: "ABOUT HI AIM",
     dropdown: [
-      { label: 'Overview', href: '#overview' },
-      { label: 'About Us', href: '#about' },
-      { label: 'Terms & Conditions', href: '#terms' },
-      { label: 'Privacy Policy', href: '#privacy' },
+      { label: "Overview", href: "#overview" },
+      { label: "About Us", href: "#about" },
+      { label: "Terms & Conditions", href: "#terms" },
+      { label: "Privacy Policy", href: "#privacy" },
     ],
   },
   {
-    title: 'HI AIM 2027',
+    title: "HI AIM 2027",
     dropdown: [
-      { label: 'Program', href: '#program' },
-      { label: 'Venue', href: '#venue' },
-      { label: 'Speaker', href: '#speaker' },
-      { label: 'Exhibitors Profiles', href: '#exhibitors-profiles' },
-      { label: 'Sponsorship Details', href: '#sponsorship-details' },
-      { label: 'Exposition Layout', href: '#exposition-layout' },
-      { label: 'Guidelines for Exhibitors', href: '#guidelines-for-exhibitors' },
-      { label: 'Registration T & C', href: '#registration-tc' },
-      { label: 'Delegate Registration Form', href: '#delegate-registration-form' },
+      { label: "Program", href: "#program" },
+      { label: "Venue", href: "#venue" },
+      { label: "Speaker", href: "#speaker" },
+      { label: "Exhibitors Profiles", href: "#exhibitors-profiles" },
+      { label: "Sponsorship Details", href: "#sponsorship-details" },
+      { label: "Exposition Layout", href: "#exposition-layout" },
+      { label: "Guidelines for Exhibitors", href: "#guidelines-for-exhibitors" },
+      { label: "Registration T & C", href: "#registration-tc" },
+      { label: "Delegate Registration Form", href: "#delegate-registration-form" },
     ],
   },
-  { title: 'GALLERY', href: '#gallery' },
+  { title: "GALLERY", href: "#gallery" },
   {
-    title: 'NEWS',
+    title: "NEWS",
     dropdown: [
-      { label: 'Media Coverage', href: '#media-coverage' },
-      { label: 'Press Releases', href: '#press-releases' },
+      { label: "Media Coverage", href: "#media-coverage" },
+      { label: "Press Releases", href: "#press-releases" },
     ],
   },
-  {
-    title: 'TESTIMONIALS',
-    dropdown: [
-      { label: 'Testimonial - 2014', href: '#testimonial-2014' },
-      { label: 'Testimonial - 2015', href: '#testimonial-2015' },
-      { label: 'Testimonial - 2016', href: '#testimonial-2016' },
-      { label: 'Testimonial - 2017', href: '#testimonial-2017' },
-      { label: 'Testimonial - 2018', href: '#testimonial-2018' },
-      { label: 'Testimonial - 2019', href: '#testimonial-2019' },
-      { label: 'Testimonial - 2020', href: '#testimonial-2020' },
-      { label: 'Testimonial - 2021', href: '#testimonial-2021' },
-      { label: 'Testimonial - 2022', href: '#testimonial-2022' },
-      { label: 'Testimonial - 2023', href: '#testimonial-2023' },
-      { label: 'Testimonial - 2024', href: '#testimonial-2024' },
-      { label: 'Testimonial - 2025', href: '#testimonial-2025' },
-      { label: 'Testimonial - 2026', href: '#testimonial-2026' },
-    ],
-  },
-  {
-    title: 'ARCHIVES',
-    dropdown: [
-      { label: 'HI AIM - 2016', href: '#hi-aim-2016' },
-      { label: 'HI AIM - 2017', href: '#hi-aim-2017' },
-      { label: 'HI AIM - 2018', href: '#hi-aim-2018' },
-    ],
-  },
-  {
-    title: 'PAST EDITIONS',
-    dropdown: [
-      { label: 'HI AIM - 2019', href: '#hi-aim-2019' },
-      { label: 'HI AIM - 2020', href: '#hi-aim-2020' },
-      { label: 'HI AIM - 2021', href: '#hi-aim-2021' },
-      { label: 'HI AIM - 2022', href: '#hi-aim-2022' },
-      { label: 'HI AIM - 2023', href: '#hi-aim-2023' },
-      { label: 'HI AIM - 2024', href: '#hi-aim-2024' },
-      { label: 'HI AIM - 2025', href: '#hi-aim-2025' },
-      { label: 'HI AIM - 2026', href: '#hi-aim-2026' },
-    ],
-  },
-  { title: 'CONTACT US', href: '#contact' },
-  
-  
-]
+  { title: "CONTACT US", href: "#contact" },
+];
 
 function Navbar() {
-  const [open, setOpen] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [open, setOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const toggleMenu = () => setOpen(prev => !prev)
-  const closeMenu = () => setOpen(false)
+  const toggleMenu = () => setOpen((prev) => !prev);
+  const closeMenu = () => setOpen(false);
   const navigate = useNavigate();
 
-  // 📱 mobile detect
   useEffect(() => {
     const handleResize = () => {
-      const mobile = window.innerWidth < 768
-      setIsMobile(mobile)
-      if (!mobile) setOpen(false)
-    }
+      const mobile = window.innerWidth < 1024;
+      setIsMobile(mobile);
+      if (!mobile) setOpen(false);
+    };
 
-    handleResize()
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-  // 📜 scroll effect (MAIN FEATURE)
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true)
-      } else {
-        setScrolled(false)
-      }
-    }
+      setScrolled(window.scrollY > 40);
+    };
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500
-      ${scrolled 
-        ? 'bg-white text-yellow-500 shadow-md' 
-        : 'bg-transparent text-yellow-500'
+      className={`fixed left-0 top-0 z-50 w-full transition-all duration-500 ${
+        scrolled
+          ? "border-b border-white/10 bg-[#070b15]/95 backdrop-blur-xl"
+          : "bg-transparent"
       }`}
     >
-      {/* main navbar */}
-      <div className="flex items-center text-lg justify-between px-4 sm:px-6 md:px-12 lg:px-20 xl:px-40 py-3">
+      <div className="section-shell flex items-center justify-between py-4">
+        <a href="#home" className="flex items-center gap-3" onClick={closeMenu}>
+          <img src="/logo1-removebg-preview.png" alt="Hi Aim logo" className="h-14 w-auto" />
+          <div className="hidden md:block">
+            <p className="gold-text text-sm font-semibold tracking-[0.35em]">HI AIM</p>
+            <p className="text-xs uppercase tracking-[0.25em] text-slate-300">Conference & Exposition</p>
+          </div>
+        </a>
 
-        {/* logo */}
-        <img
-          src="/logo1-removebg-preview.png"
-          alt="Hi Aim logo"
-          className="h-16 w-auto md:h-20"
-        />
-
-        {/* hamburger */}
         <button
-          className="md:hidden text-2xl focus:outline-none"
+          className="rounded-md border border-white/20 px-3 py-1 text-xl text-slate-100 lg:hidden"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
-          {open ? '✕' : '☰'}
+          {open ? "?" : "?"}
         </button>
 
-        {/* menu */}
         <ul
-          className={`
-            flex flex-col md:flex-row
-            md:gap-4 lg:gap-6 gap-2
-            absolute md:static
-            left-0 w-full md:w-auto
-            bg-white md:bg-transparent
-            px-4 md:px-0 py-4 md:py-0
-            shadow-lg md:shadow-none
-            border-t md:border-0
-            transition-all duration-300
-            ${open ? 'top-full block' : 'hidden md:flex'}
-          `}
+          className={`absolute left-0 top-full w-full border-b border-white/10 bg-[#0b1020] px-6 py-6 shadow-2xl lg:static lg:flex lg:w-auto lg:items-center lg:gap-6 lg:border-0 lg:bg-transparent lg:px-0 lg:py-0 lg:shadow-none ${
+            open ? "block" : "hidden lg:flex"
+          }`}
         >
           {navItems.map((item) => (
             <NavItem
@@ -168,16 +109,16 @@ function Navbar() {
             />
           ))}
         </ul>
-        <button className="hidden md:block bg-yellow-500 text-white px-4 py-2 rounded-full hover:bg-yellow-600 transition"
-        onClick={() => navigate('/register')}>
-          Register
-        </button>
 
+        <button
+          className="hidden rounded-full border border-[#d7b775] bg-gradient-to-r from-[#9d7b35] via-[#d4b16f] to-[#9d7b35] px-5 py-2 text-sm font-semibold text-[#141821] transition hover:brightness-110 lg:block"
+          onClick={() => navigate("/register")}
+        >
+          Register Now
+        </button>
       </div>
-      
-     
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

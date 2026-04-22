@@ -1,35 +1,37 @@
 import React from "react";
 
+const metrics = [
+  { label: "Delegates", value: "1200+" },
+  { label: "Speakers", value: "90+" },
+  { label: "Brands", value: "200+" },
+];
+
 const Third = () => {
   return (
-    <>
-      <div className="flex min-h-screen bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-[#27272a] via-[#52525b] to-[#a1a1aa]">
-        <div className="w-1/2 min-h-screen p-8">
-          <h1 className="text-5xl font-bold text-yellow-500 pt-28">
-            The 2-day event comprises a Conference-cum-Exposition
-          </h1>
-          <p className="text-gray-300 pt-16 text-xl">
-            Hi-Aim provides an enriching opportunity for the convergence of
-            Hoteliers, Hotel Brands and Hospitality related decision makers -
-            Architects / Interior Designers on a common Knowledge Sharing
-            platform to confer and exchange ideas on key issues and emerging
-            trends in the hospitality industry.
+    <section id="overview" className="py-20 md:py-24">
+      <div className="section-shell grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="premium-card rounded-3xl p-8 md:p-10">
+          <p className="text-xs uppercase tracking-[0.4em] text-[#d3b77b]">Conference Overview</p>
+          <h2 className="mt-4 text-3xl leading-tight text-white md:text-5xl">
+            An Exclusive 2-Day Conference & Exposition Experience
+          </h2>
+          <p className="mt-6 text-base leading-relaxed text-slate-300 md:text-lg">
+            Hi-Aim presents a distinguished platform where renowned hoteliers, prestigious brands, and visionary
+            hospitality decision-makers converge. This refined gathering enables strategic dialogue, actionable
+            insights, and collaborative thinking across architecture, design, and operations.
           </p>
         </div>
-        <div className="flex-col bg-gray-950 w-1/2 min-h-0.5">
-          <div className="flex w-full h-1/2 bg"> 
-            <div className="w-2/6 m-10 bg-gray-900"></div>
-            <div className="w-2/6 m-10 bg-gray-800"></div>
-          </div>
-          <div className="flex w-full h-1/2 bg"> 
-            <div className="w-2/6 m-10 bg-gray-900"></div>
-            <div className="w-2/6 m-10 bg-gray-800"></div>
-          </div>
 
-          
+        <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-1">
+          {metrics.map((item) => (
+            <div key={item.label} className="premium-card rounded-2xl p-7">
+              <p className="text-xs uppercase tracking-[0.3em] text-slate-400">{item.label}</p>
+              <p className="gold-text mt-3 text-4xl font-semibold">{item.value}</p>
+            </div>
+          ))}
         </div>
       </div>
-    </>
+    </section>
   );
 };
 

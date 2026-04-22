@@ -2,80 +2,55 @@ import React from "react";
 
 const Register = () => {
   return (
-    <div className="min-h-screen pt-24 flex items-center justify-center relative bg-cover bg-center"
+    <div
+      className="relative flex min-h-screen items-center justify-center bg-cover bg-center px-4 pt-24"
       style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
-      }}>
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-md z-0"></div>
+        backgroundImage:
+          "linear-gradient(rgba(6,9,17,0.78), rgba(6,9,17,0.88)), url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1800&q=80')",
+      }}
+    >
+      <div className="premium-card relative z-10 w-full max-w-md rounded-3xl p-8 text-slate-100">
+        <p className="text-xs uppercase tracking-[0.32em] text-[#d5b673]">HI AIM 2027</p>
+        <h2 className="mt-3 text-4xl text-white">Member Login</h2>
+        <p className="mt-2 text-sm text-slate-300">Enter your details to access your conference dashboard.</p>
 
-      {/* Card */}
-      <div
-        className="relative z-10 w-[380px] p-8 rounded-2xl 
-                      bg-white/10 backdrop-blur-xl 
-                      border border-white/20 shadow-2xl text-white"
-      >
-        <h2 className="text-2xl font-semibold mb-2">Welcome Back!</h2>
-        <p className="text-sm text-gray-300 mb-6">
-          Enter your details below to sign in into your account
-        </p>
-
-        {/* Social Buttons */}
-        <div className="flex gap-3 mb-5">
-          <button className="flex-1 border border-white/30 rounded-full py-2 text-sm hover:bg-white/10">
-            Continue Google
-          </button>
-          <button className="flex-1 border border-white/30 rounded-full py-2 text-sm hover:bg-white/10">
-            Continue Facebook
-          </button>
+        <div className="mt-6 flex gap-3">
+          <button className="flex-1 rounded-full border border-white/20 py-2 text-sm hover:bg-white/10">Google</button>
+          <button className="flex-1 rounded-full border border-white/20 py-2 text-sm hover:bg-white/10">Facebook</button>
         </div>
 
-        {/* Divider */}
-        <div className="flex items-center gap-3 my-4">
-          <div className="flex-1 h-px bg-white/20"></div>
-          <span className="text-xs text-gray-300">or</span>
-          <div className="flex-1 h-px bg-white/20"></div>
+        <div className="my-5 flex items-center gap-3">
+          <div className="h-px flex-1 bg-white/15" />
+          <span className="text-xs text-slate-400">or continue with email</span>
+          <div className="h-px flex-1 bg-white/15" />
         </div>
 
-        {/* Email */}
         <label className="text-sm">Email</label>
         <input
           type="email"
           placeholder="Enter your email"
-          className="w-full mt-1 mb-4 px-4 py-2 rounded-lg 
-                     bg-transparent border border-white/30 
-                     placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="mt-1 w-full rounded-xl border border-white/20 bg-[#090f1c] px-4 py-2.5 text-sm placeholder:text-slate-500 focus:border-[#d5b673] focus:outline-none"
         />
 
-        {/* Password */}
-        <label className="text-sm">Password</label>
+        <label className="mt-4 block text-sm">Password</label>
         <input
           type="password"
           placeholder="Enter Password"
-          className="w-full mt-1 mb-2 px-4 py-2 rounded-lg 
-                     bg-transparent border border-white/30 
-                     placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="mt-1 w-full rounded-xl border border-white/20 bg-[#090f1c] px-4 py-2.5 text-sm placeholder:text-slate-500 focus:border-[#d5b673] focus:outline-none"
         />
 
-        <div className="text-right mb-5">
-          <a href="#" className="text-xs text-blue-400 hover:underline">
+        <div className="mt-3 text-right">
+          <a href="#" className="text-xs text-[#d5b673] hover:underline">
             Forgot Password?
           </a>
         </div>
 
-        {/* Login Button */}
-        <button className="w-full py-2 rounded-full bg-blue-600 hover:bg-blue-700 transition">
+        <button className="mt-6 w-full rounded-full bg-gradient-to-r from-[#8f6d2d] via-[#d6b372] to-[#8f6d2d] py-2.5 text-sm font-semibold uppercase tracking-[0.16em] text-[#131622]">
           Login
         </button>
 
-        {/* Footer */}
-        <p className="text-center text-sm text-gray-300 mt-5">
-          Don't Have An Account?{" "}
-          <span className="text-blue-400 cursor-pointer hover:underline">
-            Sign Up
-          </span>
+        <p className="mt-5 text-center text-sm text-slate-300">
+          New here? <span className="cursor-pointer text-[#d5b673] hover:underline">Create account</span>
         </p>
       </div>
     </div>
