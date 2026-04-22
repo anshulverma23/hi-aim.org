@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import NavItem from "./NavItem";
 
+
 const navItems = [
   { title: "HOME", href: "#home" },
   {

@@ -3,14 +3,7 @@ import React from "react";
 function Hero() {
   return (
     <section id="home" className="relative flex min-h-screen items-end overflow-hidden pt-28">
-      <video
-        className="absolute inset-0 h-full w-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-        src="/cover-video.mp4"
-      />
+    
       <div className="absolute inset-0 bg-gradient-to-r from-[#03050c]/90 via-[#050912]/70 to-[#04050a]/85" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(217,177,107,0.2),transparent_35%)]" />
 

@@ -13,8 +13,8 @@ const Fifth = () => {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="py-20">
-      <div className="section-shell rounded-3xl border border-white/10 bg-[#090f1d]/80 px-6 py-12 md:px-10">
+    <section  className="py-20">
+      <div className=" section-shell rounded-3xl border border-white/10 bg-[#090f1d]/80 px-6 py-12 md:px-10">
         <h2 className="text-center text-3xl text-white md:text-4xl">Featured Conversations</h2>
         <p className="mx-auto mt-4 max-w-2xl text-center text-slate-300">
           Highlights from thought-provoking sessions featuring renowned voices across hospitality, architecture, and design.

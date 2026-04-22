@@ -82,7 +82,7 @@ const Testimonial = () => {
             {pages.map((page, pageIndex) => (
               <div key={pageIndex} className="grid w-full flex-shrink-0 gap-6 px-1 md:grid-cols-3" style={{ width: `${100 / pages.length}%` }}>
                 {page.map((item) => (
-                  <article key={item.name} className="premium-card rounded-2xl p-6">
+                  <article  key={item.name} className="premium-card rounded-2xl p-6">
                     <p className="text-sm leading-relaxed text-slate-300">"{item.quote}"</p>
                     <div className="mt-6 flex items-center gap-4">
                       <img src={item.image} alt={item.name} className="h-14 w-14 rounded-full border border-[#d6b675] object-cover" />

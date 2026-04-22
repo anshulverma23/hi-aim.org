@@ -3,13 +3,10 @@ import React from "react";
 const Register = () => {
   return (
     <div
-      className="relative flex min-h-screen items-center justify-center bg-cover bg-center px-4 pt-24"
-      style={{
-        backgroundImage:
-          "linear-gradient(rgba(6,9,17,0.78), rgba(6,9,17,0.88)), url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1800&q=80')",
-      }}
+      className="relative flex min-h-screen items-center bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-[#27272a] via-[#52525b] to-[#a1a1aa] justify-center bg-cover bg-center px-4 pt-24"
+     
     >
-      <div className="premium-card relative z-10 w-full max-w-md rounded-3xl p-8 text-slate-100">
+      <div className=" premium-card relative z-10 w-full max-w-md rounded-3xl p-8 text-slate-100">
         <p className="text-xs uppercase tracking-[0.32em] text-[#d5b673]">HI AIM 2027</p>
         <h2 className="mt-3 text-4xl text-white">Member Login</h2>
         <p className="mt-2 text-sm text-slate-300">Enter your details to access your conference dashboard.</p>
