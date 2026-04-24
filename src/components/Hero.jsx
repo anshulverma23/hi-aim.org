@@ -3,29 +3,28 @@ import React from "react";
 function Hero() {
   return (
     <section id="home" className="relative flex min-h-screen items-end overflow-hidden pt-28">
-    
-      <div className="absolute inset-0 bg-gradient-to-r from-[#03050c]/90 via-[#050912]/70 to-[#04050a]/85" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(217,177,107,0.2),transparent_35%)]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#f5f5f3]/92 via-[#f0f0ee]/70 to-[#ececea]/86" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(0,0,0,0.07),transparent_36%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.22),rgba(244,244,242,0.85))]" />
 
       <div className="section-shell relative z-10 pb-20 md:pb-28">
-        <p className="gold-text text-sm font-semibold uppercase tracking-[0.45em] md:text-base">HI AIM 2027</p>
-        <h1 className="mt-5 max-w-4xl text-4xl font-semibold leading-tight text-white md:text-6xl">
-          A Premium Convergence for Hospitality Leaders, Architects, and Design Innovators.
+        <p className="section-kicker">Hi Aim 2027</p>
+        <h1 className="mt-5 max-w-4xl text-4xl font-semibold leading-tight text-zinc-900 md:text-6xl">
+         The 2-day event comprises a Conference-cum-Exposition
         </h1>
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-200 md:text-lg">
-          Join a curated two-day experience where influential decision-makers shape the future of luxury hospitality,
-          hotel development, and experiential interiors.
+        <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-700 md:text-lg">
+          Hi-Aim provides an enriching opportunity for the convergence of Hoteliers, Hotel Brands and Hospitality related decision makers - Architects / Interior Designers on a common Knowledge Sharing platform to confer and exchange ideas on key issues and emerging trends in the hospitality industry.
         </p>
-        <div className="mt-9 flex flex-wrap gap-4">
+        <div className="mt-10 flex flex-wrap gap-4">
           <a
             href="#program"
-            className="rounded-full border border-[#d7b775] bg-gradient-to-r from-[#8f6d2d] via-[#d6b372] to-[#8f6d2d] px-7 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-[#111522]"
+            className="rounded-full border border-black/25 bg-zinc-900 px-7 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-white transition hover:bg-zinc-700"
           >
             View Program
           </a>
           <a
             href="#overview"
-            className="rounded-full border border-white/30 px-7 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-white transition hover:bg-white/10"
+            className="rounded-full border border-black/25 px-7 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-zinc-900 transition hover:bg-black/5"
           >
             Explore Event
           </a>

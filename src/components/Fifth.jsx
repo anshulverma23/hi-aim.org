@@ -13,17 +13,17 @@ const Fifth = () => {
   const [active, setActive] = useState(0);
 
   return (
-    <section  className="py-20">
-      <div className=" section-shell rounded-3xl border border-white/10 bg-[#090f1d]/80 px-6 py-12 md:px-10">
-        <h2 className="text-center text-3xl text-white md:text-4xl">Featured Conversations</h2>
-        <p className="mx-auto mt-4 max-w-2xl text-center text-slate-300">
+    <section className="py-20">
+      <div className="section-shell rounded-3xl border border-black/10 bg-white/80 px-6 py-12 md:px-10">
+        <h2 className="text-center text-3xl text-zinc-900 md:text-4xl">Featured Conversations</h2>
+        <p className="mx-auto mt-4 max-w-2xl text-center text-zinc-700">
           Highlights from thought-provoking sessions featuring renowned voices across hospitality, architecture, and design.
         </p>
 
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {videos.map((v, idx) => (
             <div key={v.title} className={idx === active ? "block" : "hidden md:block"}>
-              <div className="overflow-hidden rounded-2xl border border-[#d6b675]/30 bg-black">
+              <div className="overflow-hidden rounded-2xl border border-black/20 bg-zinc-100">
                 <div className="relative w-full pt-[56.25%]">
                   <iframe
                     className="absolute inset-0 h-full w-full"
@@ -35,7 +35,7 @@ const Fifth = () => {
                   />
                 </div>
               </div>
-              <p className="mt-3 text-sm text-slate-300">{v.title}</p>
+              <p className="mt-3 text-sm text-zinc-700">{v.title}</p>
             </div>
           ))}
         </div>
@@ -51,7 +51,7 @@ const Fifth = () => {
                 aria-label={`Go to video ${idx + 1}`}
                 className={[
                   "h-2.5 rounded-full transition-all",
-                  isActive ? "w-8 bg-[#d6b675]" : "w-2.5 bg-white/40",
+                  isActive ? "w-8 bg-zinc-900" : "w-2.5 bg-black/30",
                 ].join(" ")}
               />
             );

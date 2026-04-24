@@ -70,8 +70,8 @@ const Testimonial = () => {
     <section className="py-20">
       <div className="section-shell">
         <div className="text-center">
-          <p className="text-xs uppercase tracking-[0.35em] text-[#d7ba7f]">Testimonials</p>
-          <h2 className="mt-4 text-4xl text-white md:text-5xl">What Industry Leaders Say</h2>
+          <p className="section-kicker"></p>
+          <h2 className="mt-4 text-4xl text-zinc-900 md:text-5xl">Conference Speaker</h2>
         </div>
 
         <div className="mt-12 overflow-hidden">
@@ -82,13 +82,13 @@ const Testimonial = () => {
             {pages.map((page, pageIndex) => (
               <div key={pageIndex} className="grid w-full flex-shrink-0 gap-6 px-1 md:grid-cols-3" style={{ width: `${100 / pages.length}%` }}>
                 {page.map((item) => (
-                  <article  key={item.name} className="premium-card rounded-2xl p-6">
-                    <p className="text-sm leading-relaxed text-slate-300">"{item.quote}"</p>
+                  <article key={item.name} className="premium-card rounded-2xl p-6">
+                    <p className="text-sm leading-relaxed text-zinc-700">"{item.quote}"</p>
                     <div className="mt-6 flex items-center gap-4">
-                      <img src={item.image} alt={item.name} className="h-14 w-14 rounded-full border border-[#d6b675] object-cover" />
+                      <img src={item.image} alt={item.name} className="h-14 w-14 rounded-full border border-black/20 object-cover" />
                       <div>
-                        <h3 className="text-lg text-[#f0d9a5]">{item.name}</h3>
-                        <p className="text-xs text-slate-400">{item.title}</p>
+                        <h3 className="text-lg text-zinc-900">{item.name}</h3>
+                        <p className="text-xs text-zinc-600">{item.title}</p>
                       </div>
                     </div>
                   </article>
@@ -99,17 +99,17 @@ const Testimonial = () => {
         </div>
 
         <div className="mt-8 flex items-center justify-center gap-3">
-          <button onClick={prevPage} className="h-10 w-10 rounded-full border border-white/20 text-slate-200 hover:bg-white/10">
+          <button onClick={prevPage} className="h-10 w-10 rounded-full border border-black/20 text-zinc-800 hover:bg-black/5">
             ‹
           </button>
           {pages.map((_, index) => (
             <button
               key={index}
               onClick={() => setActivePage(index)}
-              className={`h-2.5 rounded-full transition-all ${activePage === index ? "w-8 bg-[#d6b675]" : "w-2.5 bg-white/40"}`}
+              className={`h-2.5 rounded-full transition-all ${activePage === index ? "w-8 bg-zinc-900" : "w-2.5 bg-black/30"}`}
             />
           ))}
-          <button onClick={nextPage} className="h-10 w-10 rounded-full border border-white/20 text-slate-200 hover:bg-white/10">
+          <button onClick={nextPage} className="h-10 w-10 rounded-full border border-black/20 text-zinc-800 hover:bg-black/5">
             ›
           </button>
         </div>

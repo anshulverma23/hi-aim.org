@@ -82,7 +82,8 @@ const Seventh = () => {
   return (
     <section className="py-20">
       <div className="section-shell">
-        <h2 className="text-center text-4xl text-white md:text-5xl">Video Feedback</h2>
+        <p className="section-kicker text-center">Interviews</p>
+        <h2 className="text-center text-4xl text-zinc-900 md:text-5xl">Video Feedback</h2>
 
         <div className="mt-10 overflow-hidden">
           <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${page * 100}%)` }}>
@@ -91,7 +92,7 @@ const Seventh = () => {
                 <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-3">
                   {items.map((item) => (
                     <article key={item.name} className="premium-card rounded-2xl p-4">
-                      <div className="relative w-full overflow-hidden rounded-xl border border-white/10 pt-[56.25%]">
+                      <div className="relative w-full overflow-hidden rounded-xl border border-black/10 pt-[56.25%]">
                         <iframe
                           className="absolute inset-0 h-full w-full"
                           src={item.videoUrl}
@@ -103,10 +104,10 @@ const Seventh = () => {
                       </div>
 
                       <div className="mt-4 flex items-center gap-3">
-                        <img src={item.avatar} alt={item.name} className="h-12 w-12 rounded-full border border-[#d6b675] object-cover" />
+                        <img src={item.avatar} alt={item.name} className="h-12 w-12 rounded-full border border-black/20 object-cover" />
                         <div>
-                          <h3 className="text-base text-[#f0d9a5]">{item.name}</h3>
-                          <p className="text-xs text-slate-400">{item.role}</p>
+                          <h3 className="text-base text-zinc-900">{item.name}</h3>
+                          <p className="text-xs text-zinc-600">{item.role}</p>
                         </div>
                       </div>
                     </article>
@@ -128,7 +129,7 @@ const Seventh = () => {
                 onClick={() => setPage(idx)}
                 className={[
                   "h-2.5 rounded-full transition-all",
-                  isActive ? "w-8 bg-[#d6b675]" : "w-2.5 bg-white/40",
+                  isActive ? "w-8 bg-zinc-900" : "w-2.5 bg-black/30",
                 ].join(" ")}
               />
             );

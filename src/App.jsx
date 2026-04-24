@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import Hero from "./components/hero.jsx";
+import Hero from "./components/Hero.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Third from "./components/Third.jsx";
 import Fourth from "./components/Fourth.jsx";
@@ -32,7 +32,7 @@ const AppContent = () => {
   const isRegisterRoute = location.pathname === "/register";
 
   return (
-    <div className="min-h-screen bg-[#05070d] text-slate-100">
+    <div className="min-h-screen bg-[#f4f4f2] text-zinc-900">
       <Navbar />
       <Routes>
         <Route path="/register" element={<Register />} />

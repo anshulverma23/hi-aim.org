@@ -23,9 +23,9 @@ const Fourth = () => {
     <section className="py-20" id="program">
       <div className="section-shell">
         <div className="text-center">
-          <p className="text-xs uppercase tracking-[0.35em] text-[#d8bb7f]">Participation</p>
-          <h2 className="mt-4 text-4xl text-white md:text-5xl">Who Should Attend</h2>
-          <p className="mx-auto mt-5 max-w-3xl text-slate-300">
+          <p className="section-kicker">Participation</p>
+          <h2 className="mt-4 text-4xl text-zinc-900 md:text-5xl">Who Should Attend</h2>
+          <p className="mx-auto mt-5 max-w-3xl text-zinc-700">
             Crafted for leaders shaping hospitality design and business outcomes across hotels, resorts, and mixed-use
             destinations.
           </p>
@@ -36,9 +36,9 @@ const Fourth = () => {
             <article key={card.title} className="premium-card overflow-hidden rounded-2xl">
               <img src={card.image} alt={card.title} className="h-56 w-full object-cover" />
               <div className="p-6">
-                <h3 className="text-2xl text-white">{card.title}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-slate-300">{card.text}</p>
-                <button className="mt-6 rounded-full border border-[#d6b675] px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#edd8a2] transition hover:bg-[#d6b675]/10">
+                <h3 className="text-2xl text-zinc-900">{card.title}</h3>
+                <p className="mt-4 text-sm leading-relaxed text-zinc-700">{card.text}</p>
+                <button className="mt-6 rounded-full border border-black/25 px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-zinc-900 transition hover:bg-black/5">
                   Show More
                 </button>
               </div>

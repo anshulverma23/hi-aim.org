@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import NavItem from "./NavItem";
 
-
 const navItems = [
   { title: "HOME", href: "#home" },
   {
@@ -23,9 +22,15 @@ const navItems = [
       { label: "Exhibitors Profiles", href: "#exhibitors-profiles" },
       { label: "Sponsorship Details", href: "#sponsorship-details" },
       { label: "Exposition Layout", href: "#exposition-layout" },
-      { label: "Guidelines for Exhibitors", href: "#guidelines-for-exhibitors" },
+      {
+        label: "Guidelines for Exhibitors",
+        href: "#guidelines-for-exhibitors",
+      },
       { label: "Registration T & C", href: "#registration-tc" },
-      { label: "Delegate Registration Form", href: "#delegate-registration-form" },
+      {
+        label: "Delegate Registration Form",
+        href: "#delegate-registration-form",
+      },
     ],
   },
   { title: "GALLERY", href: "#gallery" },
@@ -73,29 +78,33 @@ function Navbar() {
     <nav
       className={`fixed left-0 top-0 z-50 w-full transition-all duration-500 ${
         scrolled
-          ? "border-b border-white/10 bg-[#070b15]/95 backdrop-blur-xl"
-          : "bg-transparent"
+          ? "border-b border-black/10 bg-[#f4f4f2]/95 backdrop-blur-xl"
+          : "bg-[#f4f4f2]/70 backdrop-blur-md"
       }`}
     >
       <div className="section-shell flex items-center justify-between py-4">
         <a href="#home" className="flex items-center gap-3" onClick={closeMenu}>
-          <img src="/logo1-removebg-preview.png" alt="Hi Aim logo" className="h-14 w-auto" />
+          <img
+            src="/logo1-removebg-preview.png"
+            alt="Hi Aim logo"
+            className="h-14 w-auto"
+          />
           <div className="hidden md:block">
-            <p className="gold-text text-sm font-semibold tracking-[0.35em]">HI AIM</p>
-            <p className="text-xs uppercase tracking-[0.25em] text-slate-300">Conference & Exposition</p>
+           
           </div>
         </a>
 
         <button
-          className="rounded-md border border-white/20 px-3 py-1 text-xl text-slate-100 lg:hidden"
+          className="rounded-md border border-black/20 px-3 py-1 text-sm font-semibold uppercase tracking-[0.14em] text-zinc-900 lg:hidden"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
-          {open ? "?" : "?"}
+          {open ? "Close" : "Menu"}
         </button>
 
+
         <ul
-          className={`absolute left-0 top-full w-full border-b border-white/10 bg-[#0b1020] px-6 py-6 shadow-2xl lg:static lg:flex lg:w-auto lg:items-center lg:gap-6 lg:border-0 lg:bg-transparent lg:px-0 lg:py-0 lg:shadow-none ${
+          className={`absolute left-0 top-full w-full border-b border-black/10 bg-white px-6 py-6 shadow-2xl lg:static lg:flex lg:w-auto lg:items-center lg:gap-6 lg:border-0 lg:bg-transparent lg:px-0 lg:py-0 lg:shadow-none ${
             open ? "block" : "hidden lg:flex"
           }`}
         >
@@ -112,7 +121,7 @@ function Navbar() {
         </ul>
 
         <button
-          className="hidden rounded-full border border-[#d7b775] bg-gradient-to-r from-[#9d7b35] via-[#d4b16f] to-[#9d7b35] px-5 py-2 text-sm font-semibold text-[#141821] transition hover:brightness-110 lg:block"
+          className="hidden rounded-full border border-black/25 bg-zinc-900 px-5 py-2 text-sm font-semibold text-white transition hover:bg-zinc-700 lg:block"
           onClick={() => navigate("/register")}
         >
           Register Now

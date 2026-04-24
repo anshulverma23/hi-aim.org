@@ -47,20 +47,20 @@ function NavItem({ title, href = "#", dropdown = [], onClose, isMobile }) {
       {hasDropdown ? (
         <button
           type="button"
-          className="flex w-full items-center justify-between text-left text-sm font-medium tracking-[0.08em] text-slate-200 transition hover:text-[#f5d89a] lg:w-auto"
+          className="flex w-full items-center justify-between text-left text-sm font-medium tracking-[0.08em] text-zinc-800 transition hover:text-zinc-950 lg:w-auto"
           aria-expanded={open}
           aria-haspopup="menu"
           onClick={toggleDropdown}
         >
           {title}
           <span className={`ml-2 transition-transform duration-300 lg:hidden ${open ? "rotate-180" : ""}`}>
-            ?
+            +
           </span>
         </button>
       ) : (
         <a
           href={href}
-          className="block w-full text-sm font-medium tracking-[0.08em] text-slate-200 transition hover:text-[#f5d89a] lg:w-auto"
+          className="block w-full text-sm font-medium tracking-[0.08em] text-zinc-800 transition hover:text-zinc-950 lg:w-auto"
           onClick={closeAll}
         >
           {title}
@@ -68,12 +68,12 @@ function NavItem({ title, href = "#", dropdown = [], onClose, isMobile }) {
       )}
 
       {hasDropdown && open && (
-        <div className="z-50 mt-3 w-full overflow-hidden rounded-xl border border-white/10 bg-[#0f1629] shadow-xl lg:absolute lg:left-0 lg:top-full lg:w-72">
+        <div className="z-50 mt-2 w-full overflow-hidden rounded-xl border border-black/10 bg-white shadow-xl lg:absolute lg:left-0 lg:top-full lg:mt-0 lg:w-72 lg:pt-3">
           {dropdown.map((item) => (
             <a
               key={item.label}
               href={item.href || "#"}
-              className="block w-full border-b border-white/5 px-4 py-3 text-sm text-slate-200 transition hover:bg-white/5 hover:text-[#f2d99f]"
+              className="block w-full border-b border-black/5 px-4 py-3 text-sm text-zinc-800 transition hover:bg-black/5 hover:text-zinc-950"
               onClick={closeAll}
             >
               {item.label}
